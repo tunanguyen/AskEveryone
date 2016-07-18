@@ -6,33 +6,40 @@ package DAO;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Mikey Nguyen
  */
 public class DataAccess {
+    
+    private static final String DB_DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+    private static final String DB_CONNECTION = "jdbc:sqlserver://localhost:1433;databaseName=PUBDB";
+    private static final String DB_USER = "sa";
+    private static final String DB_PASSWORD = "sa";
 
-    Connection conn = null;
-    Statement state = null;
-    ResultSet result = null;
-    PreparedStatement pre = null;
+    private static Connection connection;
 
-    public DataAccess() throws Exception {
-        //1. load jdbc driver
-        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        //2. open db connection - connection string
-        String url = "jdbc:sqlserver://localhost:1433;databaseName=PUBDB";
-        conn = DriverManager.getConnection(url, "sa", "123456789");
+    static {
+        try {
+            Class.forName(DB_DRIVER);
+            connection = DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public static Connection getConnection() {
+        return connection;
     }
 
     //close db connetion
-    public void closeConnection() throws Exception {
-        if (conn != null) {
-            conn.close();
+    public static void closeConnection() throws Exception {
+        if (connection != null) {
+            connection.close();
         }
     }
 
