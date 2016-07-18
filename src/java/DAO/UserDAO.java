@@ -83,9 +83,9 @@ public class UserDAO extends AbstractDAO<User> {
         ps.setString(1, username);
         ResultSet rs = ps.executeQuery();
         if (rs.next() == false) {
-            return true;
-        } else {
             return false;
+        } else {
+            return true;
         }
     }
     private static final String CHECK_EMAIL_SQL = "SELECT * FROM USERS WHERE EMAIL = ?";
@@ -95,9 +95,9 @@ public class UserDAO extends AbstractDAO<User> {
         ps.setString(1, email);
         ResultSet rs = ps.executeQuery();
         if (rs.next() == false) {
-            return true;
-        } else {
             return false;
+        } else {
+            return true;
         }
     }
 }
