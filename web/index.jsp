@@ -4,8 +4,8 @@
     Author     : ngocn
 --%>
 
-<%@page import="DAO.UserDAO"%>
-<%@page import="entity.User"%>
+<%@page import="constant.RequestAttribute"%>
+<%@page import="constant.ResponseCode"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -21,7 +21,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     </head>
     <body>
-        <form method="POST" action="index.jsp">
+        <form method="POST" action="RegisterController">
             <div class="container">
                 <div class="well well-sm"><strong><span class="glyphicon glyphicon-asterisk"></span>Required Field</strong></div>
                 <div class="form-group">
@@ -51,55 +51,21 @@
                 <br>
                 <br>
                 <%
-                    String username = request.getParameter("username");
-                    String password = request.getParameter("password");
-                    String email = request.getParameter("email");
-                    if (request.getParameter("submit") != null) {
-                        if ("".equals(username)) {
-                            return;
-                        } else if ("".equals(password)) {
-                            return;
-                        } else if ("".equals(email)) {
-                            return;
-                        } else {
-                            if (UserDAO.getInstance().cheackUsernameExist(username) == true) {
+                    Integer code
+                            = (Integer) request.getAttribute(RequestAttribute.CODE);
+                    String message = (String) request.getAttribute(RequestAttribute.MESSAGE);
+                    if (code != null && code != ResponseCode.SUCCESS) {
                 %>
-                <div class="form-group">
-                    <div class="alert alert-warning">
-                        <strong>Warning!</strong> Username has been exist!
-                    </div>
+                <div class="alert alert-warning">
+                    <strong>Warning!</strong> <%=message%>
                 </div>
                 <%
-                } else if (UserDAO.getInstance().cheackEmailExist(email) == true) {
+                } else if (code != null) {
                 %>
-                <div class="form-group">
-                    <div class="alert alert-warning">
-                        <strong>Warning!</strong> Email has been exist!
-                    </div>
+                <div class="alert alert-success">
+                    <strong>Success!</strong> <%=message%>
                 </div>
                 <%
-                } else {
-                    User user = new User(username, password, email);
-                    boolean check = UserDAO.getInstance().createAccount(user);
-                    if (check == true) {
-                %>
-                <div class="form-group">
-                    <div class="alert alert-success">
-                        <strong>Success!</strong> Register successfully!
-                    </div>
-                </div>
-                <%
-                } else {
-                %>
-                <div class="form-group">
-                    <div class="alert alert-warning">
-                        <strong>Warning!</strong> Register failure!
-                    </div>
-                </div>
-                <%
-                                }
-                            }
-                        }
                     }
                 %>
             </div>
