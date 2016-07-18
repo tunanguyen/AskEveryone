@@ -47,11 +47,11 @@ public class UserDAO extends AbstractDAO<User> {
         }
         return user;
     }
+    private static final String GET_ACCOUNT_SQL = "SELECT * FROM USERS WHERE USERNAME = ? AND PASSWORD = ?";
 
     public User getAccount(User user) throws SQLException {
-        sqlStatement = "SELECT * FROM USERS WHERE USERNAME = ? AND PASSWORD = ?";
         User rsUser = null;
-        PreparedStatement ps = getConnection().prepareStatement(sqlStatement);
+        PreparedStatement ps = getConnection().prepareStatement(GET_ACCOUNT_SQL);
         ps.setString(1, user.getUserName());
         ps.setString(2, user.getPassword());
         ResultSet rs = ps.executeQuery();
@@ -60,12 +60,12 @@ public class UserDAO extends AbstractDAO<User> {
         }
         return rsUser;
     }
+    private static final String CREATE_ACCOUNT_SQL = "INSERT INTO USERS(USERNAME,PASSWORD,EMAIL) VALUES (?,?,?)";
 
     public boolean createAccount(User user) {
-        sqlStatement = "INSERT INTO USERS(USERNAME,PASSWORD,EMAIL) VALUES (?,?,?)";
         PreparedStatement ps;
         try {
-            ps = getConnection().prepareStatement(sqlStatement);
+            ps = getConnection().prepareStatement(CREATE_ACCOUNT_SQL);
             ps.setString(1, user.getUserName());
             ps.setString(2, user.getPassword());
             ps.setString(3, user.getEmail());
@@ -76,10 +76,10 @@ public class UserDAO extends AbstractDAO<User> {
             return false;
         }
     }
+    private static final String CHECK_USERNAME_SQL = "SELECT * FROM USERS WHERE USERNAME = ?";
 
     public boolean cheackUsernameExist(String username) throws SQLException {
-        sqlStatement = "SELECT * FROM USERS WHERE USERNAME = ?";
-        PreparedStatement ps = getConnection().prepareStatement(sqlStatement);
+        PreparedStatement ps = getConnection().prepareStatement(CHECK_USERNAME_SQL);
         ps.setString(1, username);
         ResultSet rs = ps.executeQuery();
         if (rs.next() == false) {
@@ -88,10 +88,10 @@ public class UserDAO extends AbstractDAO<User> {
             return false;
         }
     }
+    private static final String CHECK_EMAIL_SQL = "SELECT * FROM USERS WHERE EMAIL = ?";
 
     public boolean cheackEmailExist(String email) throws SQLException {
-        sqlStatement = "SELECT * FROM USERS WHERE EMAIL = ?";
-        PreparedStatement ps = getConnection().prepareStatement(sqlStatement);
+        PreparedStatement ps = getConnection().prepareStatement(CHECK_EMAIL_SQL);
         ps.setString(1, email);
         ResultSet rs = ps.executeQuery();
         if (rs.next() == false) {

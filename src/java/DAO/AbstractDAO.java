@@ -6,7 +6,6 @@
 package DAO;
 
 import entity.AbstractEntity;
-import entity.Question;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
