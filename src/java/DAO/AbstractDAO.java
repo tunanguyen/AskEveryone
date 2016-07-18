@@ -6,8 +6,12 @@
 package DAO;
 
 import entity.AbstractEntity;
+import entity.Question;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -26,4 +30,13 @@ public abstract class AbstractDAO<E extends AbstractEntity> {
     }
 
     protected abstract E castFromDB(ResultSet record);
+
+    protected List<E> castToList(ResultSet resultSet) throws SQLException {
+        List<E> result = new ArrayList<>();
+        while (resultSet.next()) {
+            E e = castFromDB(resultSet);
+            result.add(e);
+        }
+        return result;
+    }
 }

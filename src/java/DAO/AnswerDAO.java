@@ -59,7 +59,7 @@ public class AnswerDAO extends AbstractDAO<Answer> {
     }
 
     private static final String SAVE_ANSWER
-            = "INSERT INTO ANSWER (questionContent, username, questionId, likeNumber, dislikeNumber, dateTime)"
+            = "INSERT INTO ANSWERS (questionContent, username, questionId, likeNumber, dislikeNumber, dateTime) "
             + "VALUES (?,?,?,0,0,?)";
 
     private static final String INCREASE_QUESTION_ANSWER_NUMBER
@@ -103,29 +103,26 @@ public class AnswerDAO extends AbstractDAO<Answer> {
     }
 
     private static final String LIST_ANSWERS
-            = "SELECT * FROM ANSWER"
-            + "WHERE questionId = ?"
-            + "ORDER BY likeNumber DESC, disLikeNumber ASC, dateTime ASC"
+            = "SELECT * FROM ANSWERS "
+            + "WHERE questionId = ? "
+            + "ORDER BY likeNumber DESC, disLikeNumber ASC, dateTime ASC "
             + "LIMIT ?,?;";
 
     public List<Answer> listAnswers(int questionId, int skip, int take) throws SQLException {
-        List<Answer> result = new ArrayList<>();
+        List<Answer> result;
         try (PreparedStatement preparedStatement = getConnection().prepareStatement(LIST_ANSWERS)) {
             preparedStatement.setInt(1, questionId);
             preparedStatement.setInt(1, skip);
             preparedStatement.setInt(1, take);
 
             ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
-                Answer answer = castFromDB(resultSet);
-                result.add(answer);
-            }
+            result = castToList(resultSet);
         }
         return result;
     }
 
     private static final String INCREASE_LIKE_NUMBER
-            = "UPDATE ANSWER "
+            = "UPDATE ANSWERS "
             + "SET likeNumber = ?"
             + "WHERE answerId = ?;";
 
@@ -139,7 +136,7 @@ public class AnswerDAO extends AbstractDAO<Answer> {
     }
 
     private static final String INCREASE_DISLIKE_NUMBER
-            = "UPDATE ANSWER "
+            = "UPDATE ANSWERS "
             + "SET likeNumber = ?"
             + "WHERE answerId = ?;";
 

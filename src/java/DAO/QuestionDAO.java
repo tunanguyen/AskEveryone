@@ -10,7 +10,6 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -63,7 +62,7 @@ public class QuestionDAO extends AbstractDAO<Question> {
     }
 
     private static final String SAVE_QUESTION
-            = "INSERT INTO QUESTION (questionTitle, questionContent, userName, "
+            = "INSERT INTO QUESTIONS (questionTitle, questionContent, userName, "
             + "categoriesId, likeNumber, answerNumber, dateTime) "
             + "VALUES (?,?,?,?,0,0,?);";
 
@@ -78,31 +77,45 @@ public class QuestionDAO extends AbstractDAO<Question> {
             preparedStatement.execute();
         }
     }
-
+    
     private static final String LIST_QUESTIONS
-            = "SELECT * FROM QUESTION "
-            + "WHERE categoriesId = ? "
+            = "SELECT * FROM QUESTIONS "
             + "ORDER BY solved ASC, answerNumber ASC, dateTime ASC "
             + "LIMIT ?,?;";
 
     public List<Question> listQuestions(int categoriesId, int skip, int take) throws SQLException {
-        List<Question> result = new ArrayList<>();
+        List<Question> result;
         try (PreparedStatement preparedStatement = getConnection().prepareStatement(LIST_QUESTIONS)) {
+            preparedStatement.setInt(1, skip);
+            preparedStatement.setInt(2, take);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            result = castToList(resultSet);
+        }
+        return result;
+    }
+
+    private static final String LIST_QUESTIONS_BY_CATEGORY
+            = "SELECT * FROM QUESTIONS "
+            + "WHERE categoriesId = ? "
+            + "ORDER BY solved ASC, answerNumber ASC, dateTime ASC "
+            + "LIMIT ?,?;";
+
+    public List<Question> listQuestionsByCategory(int categoriesId, int skip, int take) throws SQLException {
+        List<Question> result;
+        try (PreparedStatement preparedStatement = getConnection().prepareStatement(LIST_QUESTIONS_BY_CATEGORY)) {
             preparedStatement.setInt(1, categoriesId);
             preparedStatement.setInt(2, skip);
             preparedStatement.setInt(3, take);
 
             ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
-                Question question = castFromDB(resultSet);
-                result.add(question);
-            }
+            result = castToList(resultSet);
         }
         return result;
     }
 
     private static final String GET_QUESTION
-            = "SELECT * FROM QUESTION "
+            = "SELECT * FROM QUESTIONS "
             + "WHERE questionId = ?;";
 
     public Question getQuestion(int questionId) throws SQLException {
@@ -119,7 +132,7 @@ public class QuestionDAO extends AbstractDAO<Question> {
     }
 
     private static final String MARK_AS_SOLVED
-            = "UPDATE QUESTION "
+            = "UPDATE QUESTIONS "
             + "SET solved = 1, trueAnswerId = ? "
             + "WHERE questionId = ?;";
 
@@ -133,7 +146,7 @@ public class QuestionDAO extends AbstractDAO<Question> {
     }
 
     private static final String INCREASE_LIKE_NUMBER
-            = "UPDATE QUESTION "
+            = "UPDATE QUESTIONS "
             + "SET likeNumber = ? "
             + "WHERE questionId = ?;";
 
