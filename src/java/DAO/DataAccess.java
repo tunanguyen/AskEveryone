@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 public class DataAccess {
     
     private static final String DB_DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-    private static final String DB_CONNECTION = "jdbc:sqlserver://localhost:1433;databaseName=PUBDB";
+    private static final String DB_CONNECTION = "jdbc:sqlserver://localhost:1433;databaseName=ASKEVERYONE";
     private static final String DB_USER = "sa";
     private static final String DB_PASSWORD = "sa";
 
