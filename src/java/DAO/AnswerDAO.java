@@ -11,7 +11,6 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -112,8 +111,8 @@ public class AnswerDAO extends AbstractDAO<Answer> {
         List<Answer> result;
         try (PreparedStatement preparedStatement = getConnection().prepareStatement(LIST_ANSWERS)) {
             preparedStatement.setInt(1, questionId);
-            preparedStatement.setInt(1, skip);
-            preparedStatement.setInt(1, take);
+            preparedStatement.setInt(2, skip);
+            preparedStatement.setInt(3, take);
 
             ResultSet resultSet = preparedStatement.executeQuery();
             result = castToList(resultSet);
