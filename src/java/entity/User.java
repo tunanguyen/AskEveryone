@@ -8,13 +8,15 @@ package entity;
 
 /**
  *
- * @author ngocn
+ * @author Tuna
  */
-public class User {
+public class User extends AbstractEntity{
     private String userName;
     private String password;
     private String email;
-
+    public User(){
+        
+    }
     public User(String userName, String password, String email) {
         this.userName = userName;
         this.password = password;
