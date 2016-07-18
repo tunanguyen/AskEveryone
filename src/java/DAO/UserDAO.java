@@ -82,11 +82,7 @@ public class UserDAO extends AbstractDAO<User> {
         PreparedStatement ps = getConnection().prepareStatement(sqlStatement);
         ps.setString(1, username);
         ResultSet rs = ps.executeQuery();
-        int check = 0;
-        while (rs.next()) {
-            check++;
-        }
-        if (check == 0) {
+        if (rs.next() == false) {
             return true;
         } else {
             return false;
@@ -98,11 +94,7 @@ public class UserDAO extends AbstractDAO<User> {
         PreparedStatement ps = getConnection().prepareStatement(sqlStatement);
         ps.setString(1, email);
         ResultSet rs = ps.executeQuery();
-        int check = 0;
-        while (rs.next()) {
-            check++;
-        }
-        if (check == 0) {
+        if (rs.next() == false) {
             return true;
         } else {
             return false;
