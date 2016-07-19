@@ -9,7 +9,7 @@
 <nav class="navbar navbar-default nav_header">
     <div class="container-fluid set_size">
         <div class="navbar-header div_brand">
-            <a class="navbar-brand header_text" href="#">Ask Everyone</a>
+            <a class="navbar-brand header_text" href="index.jsp">Ask Everyone</a>
         </div>
         <div class="nav navbar-nav div_search">
             <div class="inner-addon left-addon div_text_search">
@@ -18,7 +18,7 @@
             </div>
         </div>
         <ul class="nav navbar-nav navbar-right div_account">
-            <li class="li_account"><a href="#" class="header_text"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+            <li class="li_account"><a href="register.jsp" class="header_text"><span class="glyphicon glyphicon-user"></span> Register</a></li>
             <li class="li_account"><a href="#" class="header_text"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         </ul>
     </div>

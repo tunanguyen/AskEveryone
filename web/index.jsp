@@ -4,6 +4,8 @@
     Author     : ngocn
 --%>
 
+<%@page import="cache.CategoriesCache"%>
+<%@page import="entity.Category"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -42,20 +44,17 @@
                     </div>
                     <div class="submit_question">
                         <div class="dropdown dropdown_categories">
-                            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Thể loại
-                                <span class="caret"></span></button>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Ăn - uống</a></li>
-                                <li><a href="#">Sức khỏe</a></li>
-                                <li><a href="#">Thời trang</a></li>
-                                <li><a href="#">Làm đẹp</a></li>
-                                <li><a href="#">Du lịch</a></li>
-                                <li><a href="#">Âm nhạc - Giải trí</a></li>
-                                <li><a href="#">Thể thao</a></li>
-                                <li><a href="#">Máy tính - Internet</a></li>
-                                <li><a href="#">Khoa học tự nhiên</a></li>
-                                <li><a href="#">Khoa học xã hội</a></li>
-                            </ul>
+                            <select class="form-control">
+                                <%
+                                    for (Category category : CategoriesCache.CATEGORIES) {
+                                        int categoryId = category.getCategoryId();
+                                        String categoryName = category.getCategoryName();
+                                %>
+                                <option value="<%=categoryId%>" required><%=categoryName%></option>
+                                <%
+                                    }
+                                %>
+                            </select>
                         </div>
                         <div class="div_submit">
                             <button type="button" class="btn btn-primary btn_submit">Đăng</button>
