@@ -7,8 +7,6 @@ package DAO;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -17,7 +15,8 @@ import java.util.logging.Logger;
 public class DataAccess {
     
     private static final String DB_DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-    private static final String DB_CONNECTION = "jdbc:sqlserver://localhost:1433;databaseName=ASKEVERYONE";
+//    private static final String DB_CONNECTION = "jdbc:sqlserver://localhost:1433;databaseName=ASKEVERYONE";
+    private static final String DB_CONNECTION = "jdbc:sqlserver://localhost:1434;databaseName=ASKEVERYONE";
     private static final String DB_USER = "sa";
     private static final String DB_PASSWORD = "sa";
 
@@ -28,7 +27,7 @@ public class DataAccess {
             Class.forName(DB_DRIVER);
             connection = DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
         } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
     }
 

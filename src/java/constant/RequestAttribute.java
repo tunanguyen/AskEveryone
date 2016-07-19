@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-package controller;
+package constant;
 
 /**
  *
- * @author ngocn
+ * @author Apollo
  */
-public class Login {
-    public Login(){
-        
-    }
+public class RequestAttribute {
+
+    public static final String CODE = "code";
+    public static final String MESSAGE = "message";
+
 }
