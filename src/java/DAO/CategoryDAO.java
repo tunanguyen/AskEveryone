@@ -9,6 +9,7 @@ import entity.Category;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,6 +20,15 @@ public class CategoryDAO extends AbstractDAO<Category> {
 
     private static final String CATEGORY_ID = "categoryId";
     private static final String CATEGORY_NAME = "categoryName";
+
+    private static final CategoryDAO INSTANCE = new CategoryDAO();
+
+    private CategoryDAO() {
+    }
+
+    public static CategoryDAO getInstance() {
+        return INSTANCE;
+    }
 
     @Override
     protected Category castFromDB(ResultSet record) {
@@ -38,11 +48,13 @@ public class CategoryDAO extends AbstractDAO<Category> {
     private static final String LIST_ALL_CATEGORIES
             = "SELECT * FROM CATEGORIES";
 
-    public List<Category> listAllCategories() throws SQLException {
-        List<Category> result;
+    public List<Category> listAllCategories() {
+        List<Category> result = new ArrayList<>();
         try (Statement statement = getConnection().createStatement()) {
             ResultSet resultSet = statement.executeQuery(LIST_ALL_CATEGORIES);
             result = castToList(resultSet);
+        }catch (SQLException ex) {
+            ex.getStackTrace();
         }
         return result;
     }

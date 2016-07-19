@@ -4,18 +4,19 @@
     Author     : Dell
 --%>
 
+<%@page import="cache.CategoriesCache"%>
+<%@page import="entity.Category"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <div class="categories_sidebar text-center">
     <p><h3 style="color:#9933ff"><strong>Chủ Đề</strong></h3></p>
-    <a href="#" class="a_category">Ăn - uống</a>
-    <a href="#" class="a_category">Sức khỏe</a>
-    <a href="#" class="a_category">Thời trang</a>
-    <a href="#" class="a_category">Làm đẹp</a>
-    <a href="#" class="a_category">Du lịch</a>
-    <a href="#" class="a_category">Âm nhạc - Giải trí</a>
-    <a href="#" class="a_category">Thể thao</a>
-    <a href="#" class="a_category">Máy tính - Internet</a>
-    <a href="#" class="a_category">Khoa học tự nhiên</a>
-    <a href="#" class="a_category">Khoa học xã hội</a>
+    <%
+        for (Category category : CategoriesCache.CATEGORIES) {
+            int categoryId = category.getCategoryId();
+            String categoryName = category.getCategoryName();
+    %>
+            <a href="index.jsp?categoryId=<%=categoryId%>" class="a_category"><%=categoryName%></a>
+    <%
+        }
+    %>
 </div>

@@ -82,6 +82,8 @@ li.li_account {
 
 .write_question {
     border: 1px grey solid;
+    width: 80%;
+    margin-left: 10%;
 }
 
 .div_question_content {
@@ -92,8 +94,8 @@ li.li_account {
 .textarea_question_content {
     resize: none;
     width: 100%;
-    margin-top: 15px;
-    margin-bottom: 15px;
+/*    margin-top: 15px;
+    margin-bottom: 15px;*/
     border: 0px;
     min-height: 70px; 
     line-height: 20px;
