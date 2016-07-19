@@ -82,11 +82,7 @@ public class UserDAO extends AbstractDAO<User> {
         PreparedStatement ps = getConnection().prepareStatement(CHECK_USERNAME_SQL);
         ps.setString(1, username);
         ResultSet rs = ps.executeQuery();
-        if (rs.next() == false) {
-            return false;
-        } else {
-            return true;
-        }
+        return rs.next() != false;
     }
     private static final String CHECK_EMAIL_SQL = "SELECT * FROM USERS WHERE EMAIL = ?";
 
@@ -94,10 +90,6 @@ public class UserDAO extends AbstractDAO<User> {
         PreparedStatement ps = getConnection().prepareStatement(CHECK_EMAIL_SQL);
         ps.setString(1, email);
         ResultSet rs = ps.executeQuery();
-        if (rs.next() == false) {
-            return false;
-        } else {
-            return true;
-        }
+        return rs.next() != false;
     }
 }
