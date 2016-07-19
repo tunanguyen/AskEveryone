@@ -1,0 +1,142 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jul 18, 2016, 7:44:55 PM
+    Author     : Dell
+*/
+.nav_header {
+    background: #9933ff;
+    box-shadow: 5px 5px 25px #888888;
+}
+
+a.header_text {
+    color: white!important;
+}
+
+.a_category {
+    border-top:  1px grey solid;
+    display: block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #9933ff;
+    font-size: 1em;
+}
+
+.a_category:hover {
+    color: white;
+    text-decoration: none;
+    background-color: #9933ff;
+}
+
+.a_category:focus {
+    text-decoration: none;   
+}
+
+.div_text_search {
+    margin-left: 25%;
+    width: 50%;
+    margin-top: 7px;
+}
+
+.div_search {
+    width: 65%;
+    float: left;
+}
+
+.div_brand {
+    width: 15%;
+    margin-right: 0;
+    margin-left: 0;
+    float: left;
+}
+
+.div_account {
+    float: right;
+    width: 20%;
+}
+
+li.li_account {
+    display: inline-block;
+}
+
+.categories_sidebar {
+    float: left;
+    width: 20%;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.main {
+    float: left;
+    width: 65%;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.write_question {
+    border: 1px grey solid;
+}
+
+.div_question_content {
+    width: 100%;
+    border-bottom: 1px grey solid;
+}
+
+.textarea_question_content {
+    resize: none;
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: 0px;
+    min-height: 70px; 
+    line-height: 20px;
+    font-size: 1.5em;
+    padding: 15px;
+}
+
+/*.textarea_question_content:focus {
+    border: 0px;
+}*/
+
+.submit_question {
+    padding: 15px;
+}
+
+.dropdown_categories {
+    float: left;
+}
+
+.div_submit {
+    margin-left: 85%
+}
+
+.btn_submit {
+    width: 100%;
+}
+
+/* enable absolute positioning */
+.inner-addon { 
+    position: relative; 
+}
+
+/* style icon */
+.inner-addon .glyphicon {
+    position: absolute;
+    padding: 10px;
+    pointer-events: none;
+}
+
+/* align icon */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
