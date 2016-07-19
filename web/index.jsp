@@ -33,7 +33,7 @@
     </head>
     <body>
         <jsp:include page="header.jsp"/>
-        <div class="container-fluid">
+        <div class="container-fluid set_size">
             <jsp:include page="categories-sidebar.jsp"/>
             <div class="main">
                 <div class="write_question">

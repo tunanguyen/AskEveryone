@@ -7,118 +7,349 @@ and open the template in the editor.
     Created on : Jul 18, 2016, 7:44:55 PM
     Author     : Dell
 */
-.nav_header {
-    background: #9933ff;
-    box-shadow: 5px 5px 25px #888888;
+
+@media (min-width: 600px){
+    .nav_header {
+        background: #9933ff;
+        box-shadow: 5px 5px 25px #888888;
+    }
+
+    a.header_text {
+        color: white!important;
+    }
+
+    .a_category {
+        border-top:  1px grey solid;
+        display: block;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        color: #9933ff;
+        font-size: 1em;
+    }
+
+    .a_category:hover {
+        color: white;
+        text-decoration: none;
+        background-color: #9933ff;
+    }
+
+    .a_category:focus {
+        text-decoration: none;   
+    }
+
+    .div_text_search {
+        margin-left: 25%;
+        width: 50%;
+        margin-top: 7px;
+    }
+
+    .div_search {
+        width: 65%;
+        float: left;
+    }
+
+    .div_brand {
+        width: 15%;
+        margin-right: 0;
+        margin-left: 0;
+        float: left;
+    }
+
+    .div_account {
+        float: right;
+        width: 20%;
+    }
+
+    li.li_account {
+        display: inline-block;
+    }
+
+    .categories_sidebar {
+        float: left;
+        width: 20%;
+        position: relative;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .main {
+        float: left;
+        width: 65%;
+        position: relative;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .write_question {
+        border: 1px grey solid;
+        width: 80%;
+        margin-left: 10%;
+    }
+
+    .div_question_content {
+        width: 100%;
+        border-bottom: 1px grey solid;
+    }
+
+    .textarea_question_content {
+        resize: none;
+        width: 100%;
+        border: 0px;
+        min-height: 70px; 
+        line-height: 20px;
+        font-size: 1.5em;
+        padding: 15px;
+    }
+
+    .submit_question {
+        padding: 5px;
+    }
+
+    .dropdown_categories {
+        float: left;
+    }
+
+    .div_submit {
+        margin-left: 75%
+    }
+
+    .btn_submit {
+        width: auto;
+    }
 }
 
-a.header_text {
-    color: white!important;
+@media (min-width: 10px){
+    .nav_header {
+        background: #9933ff;
+        box-shadow: 5px 5px 25px #888888;
+    }
+
+    .set_size {
+        width: 600px;
+    }
+    
+    a.header_text {
+        color: white!important;
+    }
+
+    .a_category {
+        border-top:  1px grey solid;
+        display: block;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        color: #9933ff;
+        font-size: 1em;
+    }
+
+    .a_category:hover {
+        color: white;
+        text-decoration: none;
+        background-color: #9933ff;
+    }
+
+    .a_category:focus {
+        text-decoration: none;   
+    }
+
+    .div_text_search {
+        margin-left: 25%;
+        width: 50%;
+        margin-top: 7px;
+    }
+
+    .div_search {
+        width: 65%;
+        float: left;
+    }
+
+    .div_brand {
+        width: 15%;
+        margin-right: 0;
+        margin-left: 0;
+        float: left;
+    }
+
+    .div_account {
+        float: right;
+        width: 20%;
+    }
+
+    li.li_account {
+        display: inline-block;
+    }
+
+    .categories_sidebar {
+        float: left;
+        width: 20%;
+        position: relative;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .main {
+        float: left;
+        width: 65%;
+        position: relative;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .write_question {
+        border: 1px grey solid;
+        width: 80%;
+        margin-left: 10%;
+    }
+
+    .div_question_content {
+        width: 100%;
+        border-bottom: 1px grey solid;
+    }
+
+    .textarea_question_content {
+        resize: none;
+        width: 100%;
+        border: 0px;
+        min-height: 70px; 
+        line-height: 20px;
+        font-size: 1.5em;
+        padding: 15px;
+    }
+
+    .submit_question {
+        padding: 5px;
+    }
+
+    .dropdown_categories {
+        float: left;
+    }
+
+    .div_submit {
+        margin-left: 75%;
+    }
+
+    .btn_submit {
+        width: auto;
+    }
 }
 
-.a_category {
-    border-top:  1px grey solid;
-    display: block;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    color: #9933ff;
-    font-size: 1em;
-}
+@media (min-width: 1024px) {
+     .nav_header {
+        background: #9933ff;
+        box-shadow: 5px 5px 25px #888888;
+    }
+    
+    .set_size {
+        width: 1024px;
+    }
 
-.a_category:hover {
-    color: white;
-    text-decoration: none;
-    background-color: #9933ff;
-}
+    a.header_text {
+        color: white!important;
+    }
 
-.a_category:focus {
-    text-decoration: none;   
-}
+    .a_category {
+        border-top:  1px grey solid;
+        display: block;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        color: #9933ff;
+        font-size: 1em;
+    }
 
-.div_text_search {
-    margin-left: 25%;
-    width: 50%;
-    margin-top: 7px;
-}
+    .a_category:hover {
+        color: white;
+        text-decoration: none;
+        background-color: #9933ff;
+    }
 
-.div_search {
-    width: 65%;
-    float: left;
-}
+    .a_category:focus {
+        text-decoration: none;   
+    }
 
-.div_brand {
-    width: 15%;
-    margin-right: 0;
-    margin-left: 0;
-    float: left;
-}
+    .div_text_search {
+        margin-left: 25%;
+        width: 50%;
+        margin-top: 7px;
+    }
 
-.div_account {
-    float: right;
-    width: 20%;
-}
+    .div_search {
+        width: 65%;
+        float: left;
+    }
 
-li.li_account {
-    display: inline-block;
-}
+    .div_brand {
+        width: 15%;
+        margin-right: 0;
+        margin-left: 0;
+        float: left;
+    }
 
-.categories_sidebar {
-    float: left;
-    width: 20%;
-    position: relative;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
-}
+    .div_account {
+        float: right;
+        width: 20%;
+    }
 
-.main {
-    float: left;
-    width: 65%;
-    position: relative;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
-}
+    li.li_account {
+        display: inline-block;
+    }
 
-.write_question {
-    border: 1px grey solid;
-}
+    .categories_sidebar {
+        float: left;
+        width: 20%;
+        position: relative;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
 
-.div_question_content {
-    width: 100%;
-    border-bottom: 1px grey solid;
-}
+    .main {
+        float: left;
+        width: 65%;
+        position: relative;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
 
-.textarea_question_content {
-    resize: none;
-    width: 100%;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    border: 0px;
-    min-height: 70px; 
-    line-height: 20px;
-    font-size: 1.5em;
-    padding: 15px;
-}
+    .write_question {
+        border: 1px grey solid;
+        width: 80%;
+        margin-left: 10%;
+    }
 
-/*.textarea_question_content:focus {
-    border: 0px;
-}*/
+    .div_question_content {
+        width: 100%;
+        border-bottom: 1px grey solid;
+    }
 
-.submit_question {
-    padding: 15px;
-}
+    .textarea_question_content {
+        resize: none;
+        width: 100%;
+        border: 0px;
+        min-height: 70px; 
+        line-height: 20px;
+        font-size: 1.5em;
+        padding: 15px;
+    }
 
-.dropdown_categories {
-    float: left;
-}
+    .submit_question {
+        padding: 5px;
+    }
 
-.div_submit {
-    margin-left: 85%
-}
+    .dropdown_categories {
+        float: left;
+    }
 
-.btn_submit {
-    width: 100%;
+    .div_submit {
+        margin-left: 85%
+    }
+
+    .btn_submit {
+        width: auto;
+    }
 }
 
 /* enable absolute positioning */

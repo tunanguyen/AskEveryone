@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <nav class="navbar navbar-default nav_header">
-    <div class="container-fluid">
+    <div class="container-fluid set_size">
         <div class="navbar-header div_brand">
             <a class="navbar-brand header_text" href="#">Ask Everyone</a>
         </div>
